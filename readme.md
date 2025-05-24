@@ -6,7 +6,7 @@
       src="./.github/assets/logo.webp" 
       width="100px" 
     />
-    <h1>Formação: xxx</h1>
+    <h1>Formação: Agents de IA</h1>
   </p>
 </div>
 <!--END_SECTION:header-->
