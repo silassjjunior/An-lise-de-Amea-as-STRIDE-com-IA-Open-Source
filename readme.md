@@ -41,7 +41,7 @@ Para replicar este projeto, siga os passos abaixo:
 ### 1. Cérebro de IA (Google Colab)
 
 1.  Abra o Google Colab, crie um novo notebook e configure o ambiente de execução para **T4 GPU**.
-2.  Copie o código do arquivo `colab_brain.py` deste repositório e cole em uma célula do notebook.
+2.  Copie o código do arquivo `Cerebro_AI.ipynb` deste repositório e cole em uma célula do notebook. ou abra o link https://colab.research.google.com/drive/1m_war5SPpnmSuZ-5hl6fH02T7LCq1BSS?usp=sharing
 3.  Subistitua o "COLE SEU TOKEN AQUI" pelo codigo do seu TOKEN de autenticação do NGROK, Você pode obtê-lo gratuitamente em https://dashboard.ngrok.com/get-started/your-authtoken
 4.  Execute a célula. Ao final, ela irá gerar e exibir uma **URL pública do Ngrok**. Copie esta URL.
 
