@@ -1,214 +1,89 @@
-<!--START_SECTION:header-->
-<div align="center">
-  <p align="center">
-    <img 
-      alt="DIO Education" 
-      src="./.github/assets/logo.webp" 
-      width="100px" 
-    />
-    <h1>Formação: Agents de IA</h1>
-  </p>
-</div>
-<!--END_SECTION:header-->
+# Análise de Ameaças STRIDE com IA Open-Source
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=DIO&message=Education&color=E94D5F&labelColor=202024" alt="DIO Project" />
-  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=E94D5F&labelColor=202024" alt="License"></a>
-</p>
+## 📖 Descrição do Projeto
 
-<!--  -->
-<table align="center">
-<thead>
-  <tr>
-    <td>
-        <p align="center">Expert</p>
-        <a href="https://github.com/hsouzaeduardo">
-        <img src="https://avatars.githubusercontent.com/u/1692867?s=400&u=b408cc35aea6b0b2cd69ba3745dbd134edd7ac8a&v=4" alt="@hsouzaeduardo"><br>
-        <sub>@hsouzaeduardo</sub>
-      </a>
-    </td>
-    <td colspan="3">
-    <p>Especialista em Soluções distribuídas e Cloud, pós-graduado em Engenharia de Software, MBA em Arquitetura de Soluções e Dados &IA. Atuando há 25 anos com softwares para web, Mobile, Cloud, IoT, IIoT, e softwares embarcados. Atualmente atuando como Gerente de Arquitetura e inteligência Artificial . Instrutor Oficial Microsoft há mais de 10 anos, Microsoft MVP e apaixonado por tecnologia, inovação e defensor de que um bom feedback constrói gigantes e que todos merecem oportunidades e criador da fórmula:
+Este projeto é a minha entrega para o desafio "Entendendo o Desafio de Projeto: Análise de Ameaças com IA Generativa" da DIO.
 
-R = (T + D + TD)²
+O objetivo era implementar uma solução capaz de analisar diagramas de arquitetura de software e gerar automaticamente um modelo de ameaças baseado na metodologia STRIDE. Em vez de utilizar a abordagem sugerida com Azure OpenAI, optei por um desafio adicional: **recriar a funcionalidade utilizando modelos de Inteligência Artificial de código aberto (open-source) e ferramentas totalmente gratuitas**, demonstrando a aplicação prática de conceitos de Deep Learning e MLOps.
 
-Resultado = (Tempo + dedicação + Trabalho Duro)</p>
-      <a 
-      href="https://www.linkedin.com/in/felipe-me/" 
-      align="center">
-           <img 
-            align="center" 
-            alt="Material de Apoio" 
-            src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-            >
-        </a>
-    </td>
-  </tr>
-</thead>
-</table>
-<!--  -->
+## 🚀 Minha Abordagem: IA com Custo Zero
 
-<div align="center">
-  <h2>💻 Módulos</h2>
-</div>
+A principal modificação neste projeto foi a substituição do cérebro de IA. Em vez de uma API paga, construí uma solução em três camadas:
 
-<div align="center">
-<table>
-  <thead>
-    <tr align="left">
-      <th>#</th>
-      <th>Módulo</th>
-      <th>Materiais</th>
-    </tr>
-  </thead>
-  <tbody align="left">
-    <tr>
-      <td>01</td>
-      <td>📁 Backend</td>
-      <td align="center">
-        <a href="https://learn.microsoft.com/pt-br/azure/security/develop/threat-modeling-tool-threats">
-           <img 
-              align="center" 
-              alt="Material de Apoio" 
-              src="https://img.shields.io/badge/Ver%20Material-E94D5F?style=for-the-badge"
-            >
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>02</td>
-      <td>📁 Frontend</td>
-      <td align="center">
-        <a href="https://js.cytoscape.org/">
-           <img 
-            align="center" 
-            alt="Material de Apoio" 
-            src="https://img.shields.io/badge/Ver%20Material-E94D5F?style=for-the-badge"
-            >
-        </a>
-      </td>
-    </tr>
-  </tbody>
-  <tfoot></tfoot>
-</table>
-</div>
+1.  **Cérebro de IA (Google Colab):** Utilizei um notebook no Google Colab com acesso a uma GPU gratuita para carregar e executar o modelo multimodal **LLaVA (Large Language and Vision Assistant)**. O modelo foi carregado de forma otimizada (quantizado em 4-bit) para operar dentro dos limites do ambiente gratuito.
+2.  **Backend Intermediário (FastAPI):** Um "carteiro" leve rodando localmente, responsável por receber as requisições do frontend e encaminhá-las para o serviço de IA no Colab através de um túnel seguro.
+3.  **Frontend (HTML/JS/Cytoscape.js):** A interface original do projeto, que permite o upload da imagem e a visualização gráfica da análise de ameaças retornada pela IA.
 
-<!--START_SECTION:footer-->
-<br/>
-<br/>
-<p align="center">
-  ⌨️ Feito com 💜 by DIO
-</p>
+Essa arquitetura permitiu replicar a funcionalidade do projeto original sem nenhum custo, focando na engenharia de prompt e no manuseio de modelos de IA.
 
-<br />
-<br />
+## 🛠️ Tecnologias Utilizadas
 
-<p align="center">
-  <a href="https://www.dio.me/" target="_blank">
-    <img align="center" src="./.github/assets/footer.png" alt="banner"/>
-  </a>
-</p>
+-   **Inteligência Artificial:**
+    -   **Google Colab:** Para acesso a GPU gratuita.
+    -   **PyTorch:** Framework base para o modelo de IA.
+    -   **Hugging Face Transformers:** Para carregar e executar o modelo LLaVA.
+    -   **BitsandBytes & Accelerate:** Para otimização e quantização do modelo.
+-   **Backend:**
+    -   **Python 3.10**
+    -   **FastAPI:** Para criar a API intermediária.
+    -   **Uvicorn:** Para servir a aplicação FastAPI.
+    -   **Requests:** Para comunicar com o serviço no Colab.
+-   **Frontend:**
+    -   **HTML5 / CSS3 / JavaScript**
+    -   **Cytoscape.js:** Para a visualização do grafo de ameaças.
+-   **Conectividade:**
+    -   **Ngrok:** Para criar um túnel seguro e uma URL pública para o serviço rodando no Colab.
 
-<!--END_SECTION:footer-->
-# STRIDE Threat Model Analyzer
+## ⚙️ Como Executar o Projeto
 
-Este projeto é uma solução completa para análise de ameaças baseada na metodologia STRIDE, composta por um backend em FastAPI (Python) e um front-end em HTML/CSS/JS com visualização de ameaças usando Cytoscape.js.
+Para replicar este projeto, siga os passos abaixo:
 
-## Funcionalidades
-- Upload de imagem de arquitetura e preenchimento de informações do sistema.
-- Geração automática de modelo de ameaças STRIDE usando Azure OpenAI.
-- Visualização do modelo de ameaças em grafo interativo (Cytoscape.js).
-- Sugestões de melhoria para o modelo de ameaças.
-- Botão para imprimir/exportar o grafo gerado.
+### 1. Cérebro de IA (Google Colab)
+
+1.  Abra o Google Colab, crie um novo notebook e configure o ambiente de execução para **T4 GPU**.
+2.  Copie o código do arquivo `colab_brain.py` deste repositório e cole em uma célula do notebook.
+3.  Subistitua o "COLE SEU TOKEN AQUI" pelo codigo do seu TOKEN de autenticação do NGROK, Você pode obtê-lo gratuitamente em https://dashboard.ngrok.com/get-started/your-authtoken
+4.  Execute a célula. Ao final, ela irá gerar e exibir uma **URL pública do Ngrok**. Copie esta URL.
+
+### 2. Backend (Sua Máquina Local)
+
+1.  Navegue até a pasta `module-1/01-introducao-backend`.
+2.  Abra o arquivo `main.py` e cole a URL do Ngrok na variável `COLAB_API_URL`.
+3.  Crie e ative um ambiente virtual:
+    ```bash
+    python -m venv .venv
+    # Windows
+    .\.venv\Scripts\Activate.ps1
+    # Linux/Mac
+    source .venv/bin/activate
+    ```
+4.  Instale as dependências:
+    ```bash
+    pip install -r requirements.txt
+    ```
+5.  Inicie o servidor:
+    ```bash
+    uvicorn main:app --reload --port 8001
+    ```
+
+### 3. Frontend
+
+1.  Navegue até a pasta `module-1/02-front-end`.
+2.  Abra o arquivo `index.html` em seu navegador.
+3.  Preencha o formulário, faça o upload de uma imagem de arquitetura e clique em "Analisar Ameaças". Aguarde alguns minutos para a IA processar a requisição.
+
+## 📸 Resultado
+
+Ele Gera um Grafo com o resultado da analise STRIDE
+ainda não conclui a resposta escrita.... se tiver tempo organizo aqui kk
+
+## 🧠 Aprendizados
+
+Este desafio foi uma jornada incrível. Os principais aprendizados foram:-   
+**Leitura e Processamento de conteudo em modelos Multimodais:** Ler um Conteudo em Formato de imagem e receber comandos em formato de texto e fazer a analise dos dois em uma Deep Learning.
+-   **Engenharia de Prompt na Prática:** A qualidade da análise da IA é diretamente proporcional à qualidade do prompt. Foi um exercício prático de como instruir um modelo a realizar uma tarefa complexa e a retornar dados em um formato estruturado (JSON).
+-   **MLOps com Ferramentas Gratuitas:** Aprendi a carregar e servir um modelo de Deep Learning pesado utilizando apenas os recursos gratuitos do Google Colab, aplicando técnicas de otimização como a quantização para viabilizar a operação.
+-   **Arquitetura de Sistemas Distribuídos:** O projeto, na prática, se tornou um sistema distribuído com três componentes se comunicando via rede (Frontend -> Backend Local -> Backend na Nuvem), o que reforçou conceitos de APIs e comunicação HTTP.
 
 ---
-
-## Como executar o projeto
-
-### 1. Pré-requisitos
-- Python 3.10+
-- Node.js (opcional, apenas se quiser servir o front-end com algum servidor local)
-- Conta e deployment configurado no Azure OpenAI (veja variáveis de ambiente)
-
-### 2. Clonando o repositório
-
-```bash
-# Clone o projeto
- git clone https://github.com/digitalinnovationone/stride-demo.git
- cd stride-demo
-```
-
-### 3. Configurando o backend (FastAPI)
-
-1. Acesse a pasta do backend:
-   ```bash
-   cd module-1/01-introducao-backend
-   ```
-2. Crie e ative um ambiente virtual (opcional, mas recomendado):
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate  # Windows
-   source .venv/bin/activate  # Linux/Mac
-   ```
-3. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Crie um arquivo `.env` com as seguintes variáveis (preencha com seus dados do Azure OpenAI):
-   ```env
-   AZURE_OPENAI_API_KEY=xxxxxx
-   AZURE_OPENAI_ENDPOINT=https://<seu-endpoint>.openai.azure.com/
-   AZURE_OPENAI_API_VERSION=2023-05-15
-   AZURE_OPENAI_DEPLOYMENT_NAME=<nome-do-deployment>
-   ```
-5. Execute o backend:
-   ```bash
-   uvicorn main:app --reload --host 0.0.0.0 --port 8001
-   ```
-   O backend estará disponível em http://localhost:8001
-
-### 4. Configurando o front-end
-
-1. Acesse a pasta do front-end:
-   ```bash
-   cd ../02-front-end
-   ```
-2. Basta abrir o arquivo `index.html` no navegador (duplo clique ou `open index.html`).
-   - Se quiser servir via servidor local (opcional):
-     ```bash
-     npx serve .
-     # ou
-     python -m http.server 8080
-     ```
-3. O front-end espera que o backend esteja rodando em http://localhost:8001
-
----
-
-## Cuidados e dicas
-- **Azure OpenAI:** Certifique-se de que seu deployment está ativo e as variáveis do `.env` estão corretas.
-- **CORS:** O backend já está configurado para aceitar requisições de qualquer origem, mas se for usar em produção, ajuste as origens permitidas.
-- **Limite de tokens:** O modelo do Azure OpenAI pode ter limites de tokens. Ajuste `max_tokens` se necessário.
-- **Impressão do grafo:** O botão "Imprimir Grafo" exporta a visualização atual do grafo como imagem para impressão ou PDF.
-- **Formato do JSON:** O front-end espera o JSON no formato retornado pelo backend. Se mudar o backend, ajuste o front-end conforme necessário.
-- **Portas:** Certifique-se de que as portas 8001 (backend) e 8080 (front-end, se usar servidor) estejam livres.
-
----
-
-## Estrutura do projeto
-```
-stride-demo/
-│
-├── module-1/
-│   ├── 01-introducao-backend/
-│   │   ├── main.py
-│   │   ├── requirements.txt
-│   │   └── .env (crie este arquivo)
-│   └── 02-front-end/
-│       └── index.html
-└── README.md
-```
-
----
-
-## Dúvidas?
-Só chamar que podemos ajudar ! 
+Feito com 💜 por Silas SJ Junior para a DIO.
